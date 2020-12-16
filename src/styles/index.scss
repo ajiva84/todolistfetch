@@ -11,3 +11,23 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body {
+    background-color: white;
+    font-family: sans-serif;
+}
+
+form {
+    width: 100pc;
+    max-width: 500px;
+
+}
+
+.jumbotron {
+    width: 400px;
+    height: 400px;
+    padding-top: 0px
+}
+
+ul.ba {
+    list-style-type: none;
+}
