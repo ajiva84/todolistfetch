@@ -8,11 +8,19 @@ export const InputToDo = props => {
 	const handleAdd = e => {
 		//Track input field change
 		if (e.key === "Enter") {
-			const newTask = props.todolist.concat(task);
-			props.settodoList(newTask);
+			// let newTask = props.todolist.concat([
+			// 	{
+			// 		label: task,
+			// 		false: false
+			// 	}
+			// ]);
+			const newTask = props.todolist.concat({ label: task, done: false });
+			props.updateTodo(newTask);
 			setTask("");
 		}
 	};
+
+	// props.todolist.concat({label: task, done: false})
 
 	return (
 		<div className="inputtodo">
@@ -31,5 +39,6 @@ export const InputToDo = props => {
 
 InputToDo.propTypes = {
 	todolist: PropTypes.array,
-	settodoList: PropTypes.func
+	settodoList: PropTypes.func,
+	updateTodo: PropTypes.func
 };
