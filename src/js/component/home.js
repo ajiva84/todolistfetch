@@ -50,6 +50,48 @@ export function Home() {
 			});
 	};
 
+	const clearTodoList = todolist => {
+		return fetch(URL, {
+			method: "delete",
+			body: JSON.stringify(todolist),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+			.then(resp => {
+				return resp.json();
+			})
+			.then(data => {
+				console.log(data);
+				createTodoList();
+			})
+			.catch(error => {
+				//error handling
+				console.log(error);
+			});
+	};
+
+	const createTodoList = todolist => {
+		return fetch(URL, {
+			method: "post",
+			body: JSON.stringify([]),
+			headers: {
+				"Content-Type": "application/json"
+			}
+		})
+			.then(resp => {
+				return resp.json();
+			})
+			.then(data => {
+				console.log(data);
+				syncData();
+			})
+			.catch(error => {
+				//error handling
+				console.log(error);
+			});
+	};
+
 	return (
 		<div className="jumbotron ml-5 mr-5 mt-2 align-self-center mx-auto">
 			<div className="text-center flex-column d-flex align-items-center justify-content-center">
@@ -60,6 +102,7 @@ export function Home() {
 					todolist={todolist}
 					settodoList={settodoList}
 					updateTodo={updateTodo}
+					// deleteTodo={deleteTodo}
 				/>
 			</div>
 			<div className="ml-4 text-start flex-column d-flex justify-content-start align-items-start">
@@ -67,6 +110,7 @@ export function Home() {
 					todolist={todolist}
 					settodoList={settodoList}
 					updateTodo={updateTodo}
+					// deleteTodo={deleteTodo}
 				/>
 			</div>
 		</div>

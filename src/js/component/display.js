@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { InputToDo } from "./input.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export const Displayinput = props => {
 	const handleDel = index => {
@@ -14,12 +15,16 @@ export const Displayinput = props => {
 		props.updateTodo(newDisplay);
 	};
 
+	const clearAll = () => {
+		props.settodoList([]);
+	};
+
 	const displayTask = props.todolist.map((item, index) => {
 		return (
 			<li key={index}>
 				<a>{item.label}</a>
 				<span onClick={() => handleDel(index)}>
-					<FontAwesomeIcon icon={faTimes} />
+					<FontAwesomeIcon icon={faTimes} />{" "}
 				</span>
 			</li>
 		);
@@ -39,6 +44,9 @@ export const Displayinput = props => {
 							? "s"
 							: null}{" "}
 						left
+						<span onClick={() => clearAll()}>
+							<FontAwesomeIcon icon={faTrashAlt} />
+						</span>
 					</li>
 				</ul>
 			</div>
