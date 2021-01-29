@@ -21,7 +21,9 @@ export const Displayinput = props => {
 
 	const displayTask = props.todolist.map((item, index) => {
 		return (
-			<li key={index}>
+			<li
+				className="d-flex justify-content-between list-group-item"
+				key={index}>
 				<a>{item.label}</a>
 				<span onClick={() => handleDel(index)}>
 					<FontAwesomeIcon icon={faTimes} />{" "}
@@ -31,26 +33,22 @@ export const Displayinput = props => {
 	});
 
 	return (
-		<div>
-			<div>
-				<ul className="ba">
-					{displayTask.length === 0
-						? "No Task, Add a Task"
-						: displayTask}
+		<ul className="w-100 list-group">
+			{displayTask.length === 0 ? "No Task, Add a Task" : displayTask}
 
-					<li>
-						{displayTask.length} item
-						{displayTask.length > 1 || displayTask.legnth === 0
-							? "s"
-							: null}{" "}
-						left
-						<span onClick={() => clearAll()}>
-							<FontAwesomeIcon icon={faTrashAlt} />
-						</span>
-					</li>
-				</ul>
-			</div>
-		</div>
+			<li className="d-flex justify-content-between list-group-item">
+				{displayTask.length} item
+				{displayTask.length > 1 || displayTask.legnth === 0
+					? "s"
+					: null}{" "}
+				left
+				<div>
+					<span onClick={() => clearAll()}>
+						<FontAwesomeIcon icon={faTrashAlt} />
+					</span>
+				</div>
+			</li>
+		</ul>
 	);
 };
 Displayinput.propTypes = {

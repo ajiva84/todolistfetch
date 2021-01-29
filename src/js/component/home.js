@@ -97,7 +97,7 @@ export function Home() {
 			<div className="text-center flex-column d-flex align-items-center justify-content-center">
 				<h1 className="display-5">todos</h1>
 			</div>
-			<div className="text-center flex-column d-flex align-items-center justify-content-center">
+			<div className="text-start flex-column d-flex align-items-start justify-content-center">
 				<InputToDo
 					todolist={todolist}
 					settodoList={settodoList}
@@ -105,7 +105,7 @@ export function Home() {
 					// deleteTodo={deleteTodo}
 				/>
 			</div>
-			<div className="ml-4 text-start flex-column d-flex justify-content-start align-items-start">
+			<div className="text-start flex-column d-flex justify-content-start align-items-start">
 				<Displayinput
 					todolist={todolist}
 					settodoList={settodoList}

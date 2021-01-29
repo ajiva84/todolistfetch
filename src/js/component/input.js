@@ -23,9 +23,10 @@ export const InputToDo = props => {
 	// props.todolist.concat({label: task, done: false})
 
 	return (
-		<div className="inputtodo">
-			<div className="header">
+		<div className="w-100 list-group">
+			<div className="list-group-item">
 				<input
+					className="w-100 border-0"
 					placeholder="What needs to be done?"
 					type="text"
 					value={task}
